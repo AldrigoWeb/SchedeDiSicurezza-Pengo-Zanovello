@@ -15,18 +15,28 @@
             background-color: #fafafa;
         }
 
-        /* TESTATA AZIENDALE */
+        /* HEADER MODERNO */
         .azienda {
-            text-align: center;
             margin-bottom: 30px;
         }
 
-        .azienda img {
-            height: 80px;
-            margin-bottom: 10px;
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
         }
 
-        .azienda h1 {
+        .logo img {
+            height: 75px;
+        }
+
+        .titolo {
+            flex: 1;
+            text-align: center;
+        }
+
+        .titolo h1 {
             margin: 0;
             font-size: 26px;
             color: #1f3a5f;
@@ -35,10 +45,10 @@
             padding-bottom: 6px;
         }
 
-        .azienda p {
+        .titolo p {
             margin-top: 6px;
-            font-size: 14px;
-            color: #555;
+            font-size: 13px;
+            color: #666;
         }
 
         h2 {
@@ -69,12 +79,6 @@
             border-radius: 6px;
             margin-bottom: 6px;
             padding: 8px 12px;
-            transition: background 0.15s, box-shadow 0.15s;
-        }
-
-        #searchResults li:hover {
-            background: #f0f4f8;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
         }
 
         #searchResults a {
@@ -82,12 +86,6 @@
             color: #1f3a5f;
             font-weight: 600;
             font-size: 14px;
-        }
-
-        mark {
-            background: #ffe08a;
-            padding: 0 2px;
-            border-radius: 3px;
         }
 
         /* FORNITORI */
@@ -112,13 +110,11 @@
             font-weight: bold;
             font-size: 14px;
             background-color: #fff;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
-            transition: background-color 0.2s, box-shadow 0.2s, transform 0.15s;
+            transition: 0.2s;
         }
 
         .fornitore:hover {
             background-color: #f0f4f8;
-            box-shadow: 0 3px 6px rgba(0,0,0,0.12);
             transform: translateY(-2px);
         }
 
@@ -126,19 +122,9 @@
         .contatti {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
             margin-top: 50px;
             padding-top: 20px;
             border-top: 1px solid #ddd;
-        }
-
-        .contatti .info {
-            max-width: 70%;
-        }
-
-        .contatti h3 {
-            color: #1f3a5f;
-            margin-bottom: 15px;
         }
 
         .contatto {
@@ -159,9 +145,18 @@
 <body>
 
 <header class="azienda">
-    <img src="img/logo_pengo_zanovello.png" alt="Pengo & Zanovello">
-    <h1>Pengo &amp; Zanovello</h1>
-    <p>Schede di sicurezza e documentazione fitosanitaria</p>
+    <div class="header-container">
+
+        <div class="logo">
+            <img src="img/logo_pengo_zanovello.png" alt="Pengo & Zanovello">
+        </div>
+
+        <div class="titolo">
+            <h1>Pengo &amp; Zanovello</h1>
+            <p>Schede di sicurezza e documentazione fitosanitaria</p>
+        </div>
+
+    </div>
 </header>
 
 <h2>🔍 Ricerca rapida schede di sicurezza</h2>
@@ -198,22 +193,10 @@
 </div>
 
 <section class="contatti">
-    <div class="info">
-        <h3>Contatti</h3>
-
-        <div class="contatto">
-            <strong>Pengo & Zanovello</strong><br>
-            Ufficio Commerciale<br>
-            📧 info@azienda.it<br>
-            ☎️ +39 XXX XXX XXXX
-        </div>
-
-        <div class="contatto">
-            <strong>Supporto Tecnico</strong><br>
-            Assistenza agronomica e documentale<br>
-            📧 supporto@azienda.it<br>
-            ☎️ +39 XXX XXX XXXX
-        </div>
+    <div class="contatto">
+        <strong>Pengo & Zanovello</strong><br>
+        📧 info@azienda.it<br>
+        ☎️ +39 XXX XXX XXXX
     </div>
 </section>
 
@@ -262,4 +245,3 @@ searchBox.addEventListener("input", function() {
 
 </body>
 </html>
-
