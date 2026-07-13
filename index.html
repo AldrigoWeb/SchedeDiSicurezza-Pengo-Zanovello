@@ -1,247 +1,907 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Schede di Sicurezza – Pengo & Zanovello</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 900px;
-            margin: 30px auto;
-            padding: 0 15px;
-            color: #222;
-            background-color: #fafafa;
-        }
+<meta charset="UTF-8">
 
-        /* HEADER MODERNO */
-        .azienda {
-            margin-bottom: 30px;
-        }
+<title>Schede di Sicurezza – Pengo & Zanovello</title>
 
-        .header-container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-        }
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-        .logo img {
-            height: 75px;
-        }
 
-        .titolo {
-            flex: 1;
-            text-align: center;
-        }
+<style>
 
-        .titolo h1 {
-            margin: 0;
-            font-size: 26px;
-            color: #1f3a5f;
-            display: inline-block;
-            border-bottom: 3px solid #1f3a5f;
-            padding-bottom: 6px;
-        }
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #f5f7f8;
+    color: #333;
+}
 
-        .titolo p {
-            margin-top: 6px;
-            font-size: 13px;
-            color: #666;
-        }
 
-        h2 {
-            font-size: 18px;
-            margin-top: 30px;
-            color: #1f3a5f;
-        }
+/* ===== HEADER ===== */
 
-        /* RICERCA */
-        #searchBox {
-            width: 100%;
-            padding: 12px;
-            font-size: 16px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-        }
+.azienda{
+    background:#ffffff;
+    border-radius:18px;
+    box-shadow:0 6px 20px rgba(0,0,0,.08);
+    padding:25px 40px;
+    margin-bottom:35px;
+}
 
-        #searchResults {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 20px 0;
-        }
+.header-container{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
 
-        #searchResults li {
-            background: #fff;
-            border: 1px solid #e0e0e0;
-            border-radius: 6px;
-            margin-bottom: 6px;
-            padding: 8px 12px;
-        }
+.logo img{
+    width:420px;
+    max-width:100%;
+    height:auto;
+    display:block;
+    margin:auto;
+}
 
-        #searchResults a {
-            text-decoration: none;
-            color: #1f3a5f;
-            font-weight: 600;
-            font-size: 14px;
-        }
+.sottotitolo{
+    text-align:center;
+    margin-top:18px;
+    color:#4f5f4f;
+    font-size:20px;
+    font-weight:500;
+    letter-spacing:.5px;
+}
 
-        /* FORNITORI */
-        .fornitori {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-            margin-top: 15px;
-        }
 
-        @media (min-width: 600px) { .fornitori { grid-template-columns: repeat(3, 1fr); } }
-        @media (min-width: 900px) { .fornitori { grid-template-columns: repeat(4, 1fr); } }
+.sottotitolo:before,
+.sottotitolo:after{
+    content:"";
+    display:inline-block;
+    width:60px;
+    height:2px;
+    background:#8db46b;
+    vertical-align:middle;
+    margin:0 15px;
+}
 
-        .fornitore {
-            display: block;
-            text-align: center;
-            padding: 14px 10px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            text-decoration: none;
-            color: #1f3a5f;
-            font-weight: bold;
-            font-size: 14px;
-            background-color: #fff;
-            transition: 0.2s;
-        }
 
-        .fornitore:hover {
-            background-color: #f0f4f8;
-            transform: translateY(-2px);
-        }
+/* ===== TITOLI ===== */
 
-        /* CONTATTI */
-        .contatti {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 50px;
-            padding-top: 20px;
-            border-top: 1px solid #ddd;
-        }
+h2{
+    font-size:22px;
+    color:#2d4f2d;
+    margin-top:40px;
+    margin-bottom:18px;
+    border-left:6px solid #8db46b;
+    padding-left:12px;
+}
 
-        .contatto {
-            margin-bottom: 15px;
-            font-size: 14px;
-        }
 
-        footer {
-            margin-top: 40px;
-            text-align: center;
-            font-size: 13px;
-            color: #777;
-        }
 
-    </style>
+/* ===== RICERCA ===== */
+
+
+#searchBox{
+    width:100%;
+    padding:16px 18px;
+    font-size:16px;
+    border:none;
+    border-radius:14px;
+    outline:none;
+    background:#ffffff;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+    transition:.25s;
+}
+
+
+#searchBox:focus{
+    box-shadow:0 0 0 3px rgba(141,180,107,.35);
+}
+
+
+#searchResults{
+    list-style:none;
+    padding:0;
+    margin:15px 0 20px 0;
+}
+
+
+#searchResults li{
+    background:#fff;
+    border-radius:10px;
+    margin:8px 0;
+    padding:10px 15px;
+    box-shadow:0 2px 8px rgba(0,0,0,.06);
+    transition:.2s;
+}
+
+
+#searchResults li:hover{
+    transform:translateY(-2px);
+    box-shadow:0 5px 14px rgba(0,0,0,.10);
+}
+
+
+#searchResults a{
+    text-decoration:none;
+    color:#2d4f2d;
+    font-weight:600;
+}
+
+
+mark{
+    background:#ffe08a;
+}
+
+
+
+/* ===== FORNITORI ===== */
+
+
+.fornitori{
+
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+    margin-top:15px;
+
+}
+
+
+@media(min-width:600px){
+
+    .fornitori{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+}
+
+
+@media(min-width:900px){
+
+    .fornitori{
+        grid-template-columns:repeat(4,1fr);
+    }
+
+}
+
+
+.fornitore{
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:#fff;
+
+    border:none;
+
+    border-radius:14px;
+
+    padding:18px;
+
+    text-decoration:none;
+
+    color:#2d4f2d;
+
+    font-weight:600;
+
+    font-size:15px;
+
+    box-shadow:0 4px 14px rgba(0,0,0,.08);
+
+    transition:.25s;
+
+}
+
+
+.fornitore:hover{
+
+    transform:translateY(-4px);
+
+    background:#8db46b;
+
+    color:white;
+
+    box-shadow:0 8px 18px rgba(0,0,0,.15);
+
+}
+
+ 
+/* ===== CONTATTI ===== */
+
+
+.contatti{
+
+    margin-top:50px;
+
+    padding:25px;
+
+    background:#ffffff;
+
+    border-radius:18px;
+
+    box-shadow:0 6px 20px rgba(0,0,0,.08);
+
+}
+
+
+.contatti h3{
+
+    color:#2d4f2d;
+
+    font-size:22px;
+
+    margin-top:0;
+
+}
+
+
+.contatto{
+
+    margin-bottom:20px;
+
+    font-size:15px;
+
+    line-height:1.6;
+
+}
+
+
+
+/* ===== FOOTER ===== */
+
+
+footer{
+
+    margin-top:60px;
+
+    padding:25px;
+
+    background:#ffffff;
+
+    border-radius:14px;
+
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+
+    text-align:center;
+
+    font-size:14px;
+
+    color:#666;
+
+}
+
+/* ===== BOX AGRICOLI FINALI ===== */
+
+
+.info-box-container{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:25px;
+
+    margin-top:50px;
+
+}
+
+
+
+.info-box{
+
+    position:relative;
+
+    background:#ffffff;
+
+    border-radius:20px;
+
+    padding:30px 25px;
+
+    box-shadow:0 8px 25px rgba(45,79,45,.12);
+
+    text-align:center;
+
+    border-top:6px solid #8db46b;
+
+    overflow:hidden;
+
+}
+
+
+
+.info-box:before{
+
+    content:"🌿";
+
+    position:absolute;
+
+    top:8px;
+
+    right:15px;
+
+    font-size:30px;
+
+    opacity:.25;
+
+}
+
+
+
+.info-box h3{
+
+    color:#2d4f2d;
+
+    font-size:21px;
+
+    margin-top:10px;
+
+    margin-bottom:20px;
+
+}
+
+
+
+.info-box h3:before{
+
+    content:"🌱";
+
+    margin-right:8px;
+
+}
+
+
+
+.info-box p{
+
+    color:#555;
+
+    font-size:15px;
+
+    line-height:1.7;
+
+}
+
+
+
+.info-box strong{
+
+    color:#2d4f2d;
+
+}
+
+
+
+/* BOX DOCUMENTI AGGIORNATI */
+
+
+.aggiornato{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:18px;
+
+}
+
+
+
+.scudo{
+
+    width:75px;
+
+    height:75px;
+
+    background:#5f9f45;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:white;
+
+    font-size:42px;
+
+    font-weight:bold;
+
+    box-shadow:0 5px 15px rgba(95,159,69,.35);
+
+}
+
+
+
+.testo-aggiornato{
+
+    text-align:left;
+
+}
+
+
+
+.testo-aggiornato strong{
+
+    display:block;
+
+    font-size:18px;
+
+    color:#2d4f2d;
+
+}
+
+
+
+.testo-aggiornato p{
+
+    margin-top:10px;
+
+    font-size:14px;
+
+}
+
+
+
+/* RESPONSIVE BOX FINALI */
+
+
+@media(max-width:800px){
+
+    .info-box-container{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .aggiornato{
+
+        flex-direction:column;
+
+    }
+
+
+    .testo-aggiornato{
+
+        text-align:center;
+
+    }
+
+}
+
+/* ===== RESPONSIVE ===== */
+
+
+@media(max-width:700px){
+
+    .azienda{
+
+        padding:20px;
+
+    }
+
+
+    .logo img{
+
+        width:300px;
+
+    }
+
+
+    .sottotitolo{
+
+        font-size:16px;
+
+    }
+
+
+    .sottotitolo:before,
+    .sottotitolo:after{
+
+        width:30px;
+
+    }
+
+
+    .contatti{
+
+        padding:20px;
+
+    }
+
+}
+
+
+</style>
+
 </head>
+
 
 <body>
 
+
+
 <header class="azienda">
+
+
     <div class="header-container">
 
+
         <div class="logo">
+
             <img src="img/logo_pengo_zanovello.png" alt="Pengo & Zanovello">
+
         </div>
 
-        <div class="titolo">
-            <h1>Pengo &amp; Zanovello</h1>
-            <p>Schede di sicurezza e documentazione fitosanitaria</p>
-        </div>
 
     </div>
+
+
+    <div class="sottotitolo">
+
+        Schede di Sicurezza e Documentazione Fitosanitaria
+
+    </div>
+
+
 </header>
 
+
+
 <h2>🔍 Ricerca rapida schede di sicurezza</h2>
-<input type="text" id="searchBox" placeholder="Scrivi il nome del prodotto…">
+
+
+<input 
+type="text" 
+id="searchBox" 
+placeholder="Scrivi il nome del prodotto…">
+
+
 <ul id="searchResults"></ul>
 
+
+
 <h2>Seleziona il fornitore</h2>
+
+
 <div class="fornitori">
-    <a class="fornitore" href="SCHEDE_FITOSANITARI/ADAMA_ITALIA/index.html">ADAMA ITALIA</a>
-    <a class="fornitore" href="SCHEDE_FITOSANITARI/ALBAUGH/index.html">ALBAUGH</a>
-    <a class="fornitore" href="SCHEDE_FITOSANITARI/ARYSTA/index.html">ARYSTA</a>
-    <a class="fornitore" href="SCHEDE_FITOSANITARI/ASCENZA/index.html">ASCENZA</a>
-    <a class="fornitore" href="SCHEDE_FITOSANITARI/BASF/index.html">BASF</a>
-    <a class="fornitore" href="SCHEDE_FITOSANITARI/BAYER/index.html">BAYER</a>
-    <a class="fornitore" href="SCHEDE_FITOSANITARI/CERTIS_BELCHIM/index.html">CERTIS BELCHIM</a>
-    <a class="fornitore" href="SCHEDE_FITOSANITARI/CORTEVA/index.html">CORTEVA</a>
-    <a class="fornitore" href="SCHEDE_FITOSANITARI/DIACHEM/index.html">DIACHEM</a>
-    <a class="fornitore" href="SCHEDE_FITOSANITARI/FMC/index.html">FMC</a>
-    <a class="fornitore" href="SCHEDE_FITOSANITARI/GLOBACHEM/index.html">GLOBACHEM</a>
-    <a class="fornitore" href="SCHEDE_FITOSANITARI/GOWAN/index.html">GOWAN</a>
-    <a class="fornitore" href="SCHEDE_FITOSANITARI/HELM/index.html">HELM</a>
-    <a class="fornitore" href="SCHEDE_FITOSANITARI/KOLLANT/index.html">KOLLANT</a>
-    <a class="fornitore" href="SCHEDE_FITOSANITARI/MANICA_SPA/index.html">MANICA SPA</a>
-    <a class="fornitore" href="SCHEDE_FITOSANITARI/NUFARM_ITALIA/index.html">NUFARM ITALIA</a>
-    <a class="fornitore" href="SCHEDE_FITOSANITARI/ORO_AGRI/index.html">ORO AGRI</a>
-    <a class="fornitore" href="SCHEDE_FITOSANITARI/RAINBOW_AGROSCIENCES/index.html">RAINBOW AGROSCIENCES</a>
-    <a class="fornitore" href="SCHEDE_FITOSANITARI/SCAM/index.html">SCAM</a>
-    <a class="fornitore" href="SCHEDE_FITOSANITARI/SERBIOS/index.html">SERBIOS</a>
-    <a class="fornitore" href="SCHEDE_FITOSANITARI/SHARDA/index.html">SHARDA</a>
-    <a class="fornitore" href="SCHEDE_FITOSANITARI/SIPCAM/index.html">SIPCAM</a>
-    <a class="fornitore" href="SCHEDE_FITOSANITARI/SUMITOMO/index.html">SUMITOMO</a>
-    <a class="fornitore" href="SCHEDE_FITOSANITARI/SYNGENTA/index.html">SYNGENTA</a>
-    <a class="fornitore" href="SCHEDE_FITOSANITARI/UPL/index.html">UPL</a>
+
+
+<a class="fornitore" href="SCHEDE_FITOSANITARI/ADAMA_ITALIA/index.html">
+ADAMA ITALIA
+</a>
+
+
+<a class="fornitore" href="SCHEDE_FITOSANITARI/ALBAUGH/index.html">
+ALBAUGH
+</a>
+
+
+<a class="fornitore" href="SCHEDE_FITOSANITARI/ARYSTA/index.html">
+ARYSTA
+</a>
+
+
+<a class="fornitore" href="SCHEDE_FITOSANITARI/ASCENZA/index.html">
+ASCENZA
+</a>
+
+
+<a class="fornitore" href="SCHEDE_FITOSANITARI/BASF/index.html">
+BASF
+</a>
+
+
+<a class="fornitore" href="SCHEDE_FITOSANITARI/BAYER/index.html">
+BAYER
+</a>
+
+
+<a class="fornitore" href="SCHEDE_FITOSANITARI/CERTIS_BELCHIM/index.html">
+CERTIS BELCHIM
+</a>
+
+
+<a class="fornitore" href="SCHEDE_FITOSANITARI/CORTEVA/index.html">
+CORTEVA
+</a>
+
+
+<a class="fornitore" href="SCHEDE_FITOSANITARI/DIACHEM/index.html">
+DIACHEM
+</a>
+
+
+<a class="fornitore" href="SCHEDE_FITOSANITARI/FMC/index.html">
+FMC
+</a>
+
+
+<a class="fornitore" href="SCHEDE_FITOSANITARI/GLOBACHEM/index.html">
+GLOBACHEM
+</a>
+
+
+<a class="fornitore" href="SCHEDE_FITOSANITARI/GOWAN/index.html">
+GOWAN
+</a>
+
+
+<a class="fornitore" href="SCHEDE_FITOSANITARI/HELM/index.html">
+HELM
+</a>
+
+
+<a class="fornitore" href="SCHEDE_FITOSANITARI/KOLLANT/index.html">
+KOLLANT
+</a>
+
+
+<a class="fornitore" href="SCHEDE_FITOSANITARI/MANICA_SPA/index.html">
+MANICA SPA
+</a>
+
+
+<a class="fornitore" href="SCHEDE_FITOSANITARI/NUFARM_ITALIA/index.html">
+NUFARM ITALIA
+</a>
+
+
+<a class="fornitore" href="SCHEDE_FITOSANITARI/ORO_AGRI/index.html">
+ORO AGRI
+</a>
+
+
+<a class="fornitore" href="SCHEDE_FITOSANITARI/RAINBOW_AGROSCIENCES/index.html">
+RAINBOW AGROSCIENCES
+</a>
+
+
+<a class="fornitore" href="SCHEDE_FITOSANITARI/SCAM/index.html">
+SCAM
+</a>
+
+
+<a class="fornitore" href="SCHEDE_FITOSANITARI/SERBIOS/index.html">
+SERBIOS
+</a>
+
+
+<a class="fornitore" href="SCHEDE_FITOSANITARI/SHARDA/index.html">
+SHARDA
+</a>
+
+
+<a class="fornitore" href="SCHEDE_FITOSANITARI/SIPCAM/index.html">
+SIPCAM
+</a>
+
+
+<a class="fornitore" href="SCHEDE_FITOSANITARI/SUMITOMO/index.html">
+SUMITOMO
+</a>
+
+
+<a class="fornitore" href="SCHEDE_FITOSANITARI/SYNGENTA/index.html">
+SYNGENTA
+</a>
+
+
+<a class="fornitore" href="SCHEDE_FITOSANITARI/UPL/index.html">
+UPL
+</a>
+
+
 </div>
 
-<section class="contatti">
-    <div class="contatto">
-        <strong>Pengo & Zanovello</strong><br>
+<section class="info-box-container">
+
+
+    <!-- BOX 1 -->
+
+    <div class="info-box">
+
+        <h3>Pengo &amp; Zanovello</h3>
+
+        <p>
+        <strong>Ufficio Commerciale</strong><br><br>
+
         📧 info@azienda.it<br>
-        ☎️ +39 XXX XXX XXXX
+
+        ☎ +39 XXX XXX XXXX
+
+        </p>
+
     </div>
+
+
+
+    <!-- BOX 2 -->
+
+    <div class="info-box">
+
+        <h3>Supporto Tecnico</h3>
+
+        <p>
+
+        Assistenza agronomica<br>
+
+        e supporto documentario
+
+        <br><br>
+
+        🌱 Consulenza tecnica<br>
+
+        📄 Gestione documentazione
+
+        </p>
+
+    </div>
+
+
+
+
+    <!-- BOX 3 -->
+
+    <div class="info-box">
+
+        <div class="aggiornato">
+
+            <div class="scudo">
+
+                ✓
+
+            </div>
+
+
+            <div class="testo-aggiornato">
+
+                <strong>
+                DOCUMENTI<br>
+                SEMPRE AGGIORNATI
+                </strong>
+
+                <p>
+
+                Tutte le schede di sicurezza<br>
+
+                sono aggiornate e disponibili<br>
+
+                per il download.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
 </section>
 
+
+
 <footer>
-    © Pengo & Zanovello – Tutti i diritti riservati
+
+© 2025 Pengo &amp; Zanovello
+
+<br>
+
+Schede di Sicurezza e Documentazione Fitosanitaria
+
 </footer>
+
+
+
 
 <script src="pdfList.js"></script>
 
+
 <script>
+
+
 function cleanPdfName(filename) {
+
     let name = filename.replace(".pdf", "");
+
     name = name.replace(/SDS|EU|FORMAT|ITALIAN/gi, "");
+
     name = name.replace(/[A-Z]{2,}-\d{2,}(-\d+)?/gi, "");
+
     name = name.replace(/\d{4,}/g, "");
+
     name = name.replace(/[_\-]+/g, " ");
+
     return name.trim();
+
 }
 
+
+
 const searchBox = document.getElementById("searchBox");
+
 const results = document.getElementById("searchResults");
 
+
+
 searchBox.addEventListener("input", function() {
+
+
     const query = this.value.toLowerCase();
+
+
     results.innerHTML = "";
+
+
     if (!query) return;
 
+
+
     const filtered = pdfList.filter(pdf =>
-        cleanPdfName(pdf.split("/").pop()).toLowerCase().includes(query)
+
+        cleanPdfName(pdf.split("/").pop())
+
+        .toLowerCase()
+
+        .includes(query)
+
     );
 
+
+
     if (!filtered.length) {
+
+
         results.innerHTML = "<li>Nessun PDF trovato</li>";
+
         return;
+
     }
 
+
+
     filtered.forEach(pdf => {
+
+
         const fileName = pdf.split("/").pop();
+
+
         const displayName = cleanPdfName(fileName);
+
+
+
         const li = document.createElement("li");
-        li.innerHTML = `<a href="${pdf}" target="_blank">${displayName}</a>`;
+
+
+        li.innerHTML =
+
+        `<a href="${pdf}" target="_blank">${displayName}</a>`;
+
+
         results.appendChild(li);
+
+
     });
+
+
 });
+
+
 </script>
 
+
+
 </body>
+
 </html>
