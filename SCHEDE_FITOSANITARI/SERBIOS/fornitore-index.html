@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>Schede di Sicurezza – Pengo & Zanovello</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+    :root{
+        --verde-scuro:   #1f3d2b;
+        --verde-medio:   #3a6b45;
+        --grano:         #c8963e;
+        --grano-chiaro:  #e8c583;
+        --crema:         #f7f3ea;
+        --crema-carta:   #fffdf8;
+        --terra:         #2b2620;
+        --terra-tenue:   #6b6255;
+        --riga:          #e4dfd1;
+    }
+
+    *{ box-sizing:border-box; }
+
+    body {
+        font-family:'Inter',Arial,sans-serif;
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 0 20px 60px;
+        color: var(--terra);
+        background-color: var(--crema);
+        line-height: 1.5;
+    }
+
+    /* ===== TESTATA ===== */
+    .azienda {
+        text-align: center;
+        margin: 0 -20px 30px;
+        padding: 34px 20px 26px;
+        background:
+            radial-gradient(120% 160% at 50% -20%, rgba(200,150,62,0.14), transparent 60%),
+            linear-gradient(180deg, var(--verde-scuro) 0%, #16301f 100%);
+        color: var(--crema-carta);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .azienda::after{
+        content:"";
+        position:absolute;
+        left:0; right:0; bottom:0;
+        height:6px;
+        background: repeating-linear-gradient(90deg, var(--grano) 0 22px, var(--grano-chiaro) 22px 44px);
+        opacity:.9;
+    }
+
+    .torna-home{
+        display:inline-flex;
+        align-items:center;
+        gap:6px;
+        font-size:13px;
+        color: var(--grano-chiaro);
+        text-decoration:none;
+        font-weight:600;
+        letter-spacing:.3px;
+        margin-bottom:16px;
+    }
+
+    .torna-home:hover{ color:var(--crema-carta); }
+
+    .azienda h1 {
+        margin: 0;
+        font-family:'Fraunces', serif;
+        font-weight: 600;
+        font-size: 27px;
+        color: var(--crema-carta);
+    }
+
+    .azienda .sub {
+        margin-top: 8px;
+        font-size: 13.5px;
+        color: rgba(255,253,248,0.72);
+    }
+
+    /* ===== RICERCA ===== */
+    .search-wrap{ position: relative; margin-top: 10px; }
+
+    .search-wrap svg{
+        position:absolute;
+        left:16px; top:50%;
+        transform: translateY(-50%);
+        opacity:.5;
+    }
+
+    #searchBox {
+        width: 100%;
+        padding: 13px 16px 13px 44px;
+        font-size: 15.5px;
+        font-family:'Inter',Arial,sans-serif;
+        margin-bottom: 8px;
+        border: 1.5px solid var(--riga);
+        border-radius: 10px;
+        background: var(--crema-carta);
+        color: var(--terra);
+        transition: border-color .15s, box-shadow .15s;
+    }
+
+    #searchBox:focus{
+        outline:none;
+        border-color: var(--verde-medio);
+        box-shadow: 0 0 0 3px rgba(58,107,69,0.15);
+    }
+
+    #searchBox::placeholder{ color:#a39c8b; }
+
+    .contatore{
+        font-size:13px;
+        color:var(--terra-tenue);
+        margin: 10px 0 18px;
+    }
+
+    /* ===== ELENCO SCHEDE ===== */
+    .schede{
+        display:grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    @media (min-width:700px){
+        .schede{ grid-template-columns: repeat(2,1fr); }
+    }
+
+    .scheda{
+        display:flex;
+        align-items:center;
+        gap:12px;
+        background: var(--crema-carta);
+        border: 1px solid var(--riga);
+        border-left: 3px solid var(--grano);
+        border-radius: 10px;
+        padding: 13px 16px;
+        text-decoration:none;
+        color: var(--verde-scuro);
+        transition: background .15s, box-shadow .15s, transform .15s;
+    }
+
+    .scheda:hover{
+        background:#fbf7ee;
+        box-shadow: 0 4px 12px rgba(31,61,43,0.10);
+        transform: translateX(2px);
+    }
+
+    .scheda .icona{
+        flex: 0 0 auto;
+        width: 34px;
+        height: 34px;
+        border-radius: 8px;
+        background: var(--verde-scuro);
+        color: var(--crema-carta);
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        font-size:13px;
+        font-weight:700;
+        letter-spacing: -.5px;
+    }
+
+    .scheda .nome{
+        font-weight:600;
+        font-size:14px;
+        line-height:1.35;
+    }
+
+    .vuoto{
+        text-align:center;
+        padding: 40px 20px;
+        color: var(--terra-tenue);
+        font-size:14.5px;
+        background: var(--crema-carta);
+        border: 1px dashed var(--riga);
+        border-radius: 12px;
+    }
+
+    footer {
+        margin-top: 40px;
+        text-align: center;
+        font-size: 13px;
+        color: var(--terra-tenue);
+    }
+
+    @media (max-width: 480px) {
+        body { padding: 0 14px 40px; }
+        .azienda { margin: 0 -14px 24px; padding: 26px 16px 20px; }
+        .azienda h1 { font-size: 21px; }
+    }
+</style>
+</head>
+
+<body>
+
+<header class="azienda">
+    <a class="torna-home" href="../../index.html">← Torna alla home</a>
+    <h1 id="titoloFornitore">Fornitore</h1>
+    <p class="sub">Schede di sicurezza disponibili per il download</p>
+
+    <div class="search-wrap">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="11" cy="11" r="7" stroke="#e8c583" stroke-width="2"/>
+            <path d="M21 21L16.65 16.65" stroke="#e8c583" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <input type="text" id="searchBox" placeholder="Filtra le schede di questo fornitore…">
+    </div>
+</header>
+
+<p class="contatore" id="contatore"></p>
+<div class="schede" id="listaSchede"></div>
+
+<footer>
+    © 2025 Pengo &amp; Zanovello – Tutti i diritti riservati
+</footer>
+
+<script src="../../pdfList.js"></script>
+<script>
+function cleanPdfName(filename) {
+    let name = filename.replace(".pdf", "");
+    name = name.replace(/SDS|EU|FORMAT|ITALIAN/gi, "");
+    name = name.replace(/[A-Z]{2,}-\d{2,}(-\d+)?/gi, "");
+    name = name.replace(/\d{4,}/g, "");
+    name = name.replace(/[_\-]+/g, " ");
+    return name.trim();
+}
+
+// Rileva automaticamente il nome della cartella fornitore dall'URL
+const parti = window.location.pathname.split("/").filter(Boolean);
+const cartellaFornitore = decodeURIComponent(parti[parti.length - 2] || "");
+const nomeVisualizzato = cartellaFornitore.replace(/_/g, " ");
+
+document.getElementById("titoloFornitore").textContent = nomeVisualizzato || "Fornitore";
+document.title = "Schede di Sicurezza – " + (nomeVisualizzato || "Fornitore");
+
+// Filtra solo i PDF di questa cartella
+const schedeFornitore = (typeof pdfList !== "undefined" ? pdfList : [])
+    .filter(p => p.includes("/" + cartellaFornitore + "/"));
+
+const lista = document.getElementById("listaSchede");
+const contatore = document.getElementById("contatore");
+const searchBox = document.getElementById("searchBox");
+
+function renderSchede(elenco) {
+    lista.innerHTML = "";
+
+    if (!elenco.length) {
+        lista.innerHTML = '<div class="vuoto">Nessuna scheda trovata</div>';
+        contatore.textContent = "";
+        return;
+    }
+
+    contatore.textContent = elenco.length + (elenco.length === 1 ? " scheda disponibile" : " schede disponibili");
+
+    elenco.forEach(pdf => {
+        const fileName = pdf.split("/").pop();
+        const displayName = cleanPdfName(fileName);
+        const sigla = displayName.slice(0, 2).toUpperCase() || "PD";
+
+        const a = document.createElement("a");
+        a.className = "scheda";
+        a.href = pdf;
+        a.target = "_blank";
+        a.innerHTML = `<span class="icona">${sigla}</span><span class="nome">${displayName}</span>`;
+        lista.appendChild(a);
+    });
+}
+
+renderSchede(schedeFornitore);
+
+searchBox.addEventListener("input", function() {
+    const query = this.value.toLowerCase();
+    const filtrate = schedeFornitore.filter(pdf =>
+        cleanPdfName(pdf.split("/").pop()).toLowerCase().includes(query)
+    );
+    renderSchede(filtrate);
+});
+</script>
+
+</body>
+</html>
