@@ -240,8 +240,10 @@ document.getElementById("titoloFornitore").textContent = nomeVisualizzato || "Fo
 document.title = "Schede di Sicurezza – " + (nomeVisualizzato || "Fornitore");
 
 // Filtra solo i PDF di questa cartella
+// pdfList.js contiene percorsi relativi alla RADICE del sito (es. "SCHEDE_FITOSANITARI/ADAMA_ITALIA/AGIL.pdf")
+// Questa pagina si trova due livelli sotto la radice, quindi bisogna anteporre "../../"
 const schedeFornitore = (typeof pdfList !== "undefined" ? pdfList : [])
-    .filter(p => p.includes("/" + cartellaFornitore + "/"));
+    .filter(p => p.includes("/" + cartellaFornitore + "/") || p.startsWith(cartellaFornitore + "/"));
 
 const lista = document.getElementById("listaSchede");
 const contatore = document.getElementById("contatore");
@@ -265,7 +267,7 @@ function renderSchede(elenco) {
 
         const a = document.createElement("a");
         a.className = "scheda";
-        a.href = pdf;
+        a.href = "../../" + pdf;
         a.target = "_blank";
         a.innerHTML = `<span class="icona">${sigla}</span><span class="nome">${displayName}</span>`;
         lista.appendChild(a);
