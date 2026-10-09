@@ -506,7 +506,7 @@
 <script>
 function cleanPdfName(filename) {
     let name = filename.replace(".pdf", "");
-    name = name.replace(/SDS|EU|FORMAT|ITALIAN/gi, "");
+    name = name.replace(/(^|[_\-\s])(SDS|EU|FORMAT|ITALIAN)(?=$|[_\-\s])/gi, "$1");
     name = name.replace(/[A-Z]{2,}-\d{2,}(-\d+)?/gi, "");
     name = name.replace(/\d{4,}/g, "");
     name = name.replace(/[_\-]+/g, " ");
