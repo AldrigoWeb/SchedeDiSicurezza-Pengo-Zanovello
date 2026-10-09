@@ -223,17 +223,19 @@
 <script src="../../pdfList.js"></script>
 <script>
 function cleanPdfName(filename) {
-    let name = filename.replace(".pdf", "");
-    name = name.replace(/SDS|EU|FORMAT|ITALIAN/gi, "");
+    let name = filename.replace(/\.pdf$/i, "");
+    // parole tecniche: rimosse solo se sono token a sé stanti (non dentro un nome, es. EUskatel)
+    name = name.replace(/(^|[_\-\s.()])(SDS|EU|FORMAT|ITALIAN)(?=$|[_\-\s.()])/gi, "$1");
     name = name.replace(/[A-Z]{2,}-\d{2,}(-\d+)?/gi, "");
     name = name.replace(/\d{4,}/g, "");
     name = name.replace(/[_\-]+/g, " ");
-    return name.trim();
+    return name.replace(/\s+/g, " ").trim();
 }
 
 // Rileva automaticamente il nome della cartella fornitore dall'URL
 const parti = window.location.pathname.split("/").filter(Boolean);
-const cartellaFornitore = decodeURIComponent(parti[parti.length - 2] || "");
+const indiceCartella = /\.html?$/i.test(parti[parti.length - 1] || "") ? parti.length - 2 : parti.length - 1;
+const cartellaFornitore = decodeURIComponent(parti[indiceCartella] || "");
 const nomeVisualizzato = cartellaFornitore.replace(/_/g, " ");
 
 document.getElementById("titoloFornitore").textContent = nomeVisualizzato || "Fornitore";
@@ -267,9 +269,15 @@ function renderSchede(elenco) {
 
         const a = document.createElement("a");
         a.className = "scheda";
-        a.href = "../../" + pdf;
+        a.href = "../../" + pdf.split("/").map(encodeURIComponent).join("/");
         a.target = "_blank";
-        a.innerHTML = `<span class="icona">${sigla}</span><span class="nome">${displayName}</span>`;
+        const icona = document.createElement("span");
+        icona.className = "icona";
+        icona.textContent = sigla;
+        const nome = document.createElement("span");
+        nome.className = "nome";
+        nome.textContent = displayName;
+        a.append(icona, nome);
         lista.appendChild(a);
     });
 }
@@ -277,7 +285,7 @@ function renderSchede(elenco) {
 renderSchede(schedeFornitore);
 
 searchBox.addEventListener("input", function() {
-    const query = this.value.toLowerCase();
+    const query = this.value.trim().toLowerCase();
     const filtrate = schedeFornitore.filter(pdf =>
         cleanPdfName(pdf.split("/").pop()).toLowerCase().includes(query)
     );
